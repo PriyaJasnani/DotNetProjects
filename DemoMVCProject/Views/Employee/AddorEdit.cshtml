@@ -1,0 +1,59 @@
+﻿@model DemoMVCProject.Models.EmployeeViewModel
+
+@{
+    ViewData["Title"] = Model.empid==0?"Create Employee":"Update Employee";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>EmployeeViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddorEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="empid" />
+            <div class="form-group">
+                <label asp-for="empname" class="control-label"></label>
+                <input asp-for="empname" class="form-control" />
+                <span asp-validation-for="empname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="designation" class="control-label"></label>
+                <input asp-for="designation" class="form-control" />
+                <span asp-validation-for="designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="grossal" class="control-label"></label>
+                <input asp-for="grossal" class="form-control" />
+                <span asp-validation-for="grossal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="deducts" class="control-label"></label>
+                <input asp-for="deducts" class="form-control" />
+                <span asp-validation-for="deducts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="netsal" class="control-label"></label>
+                <input asp-for="netsal" class="form-control" />
+                <span asp-validation-for="netsal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isactive" class="control-label"></label>
+                <input asp-for="isactive" class="form-control" />
+                <span asp-validation-for="isactive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
